@@ -31,6 +31,13 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		// YOUR CODE HERE
+		cards = new ArrayList<Card>();
+		for (int i = 0; i< suits.length; i++) {
+			for (int j = 0; j< ranks.length; j++) {
+				cards.add(new Card(ranks[j], suits[i], values[j]));
+			}
+		}
+		this.size = cards.size();
 	}
 
 	/**
@@ -39,7 +46,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
         // YOUR CODE HERE
-        return false;
+        return this.size == 0;
 	}
 
 	/**
@@ -48,7 +55,7 @@ public class Deck {
 	 */
 	public int getSize() {
         // YOUR CODE HERE
-        return -1;
+        return this.size;
 	}
 
 	/**
@@ -58,7 +65,11 @@ public class Deck {
 	 */
 	public Card deal() {
 		// YOUR CODE HERE
-        return null;
+        if (this.size == 0) return null;
+        else {
+        	this.size--;
+        	return cards.get(size);
+		}
 	}
 
 	/**
